@@ -1,15 +1,9 @@
+import os
 import time
-from time import sleep
-print("how long")
-time=int(input())
-print(time)
-x = 1
-time1=0
 while True:
-    time1=time1+1
-    print(time1)
-    if time1==time:
-        print("thats it")
-        sleep(1)
-        quit()
-    sleep(1)
+    x=time.ctime()
+    print("It's",x[11:19],"on",x[0:10],x[20:24])
+    time.sleep(1)
+    os.system("cls")
+
+#Tue Oct 31 09:56:50 2017

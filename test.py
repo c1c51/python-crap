@@ -1,13 +1,44 @@
-number=ten
-if number < 0:
+Playing = True
+while Playing:
+    InGame = True
+    board = [' '] * 9
+    print('Would you like to go first or second? (1/2)')
+    if input() == '1':
+        playerMarker = '0'
+    else:
+        playerMarker = 'X'
+    displayBoard(board)
 
-    print(“Too small”)
+    while InGame:
+        if playerMarker == '0':
+            print('Player go: (0-8)')
+            move = int(input())
+            if board[move] != ' ':
+                print('Invalid move!')
+                continue
+        else:
+            move = getComputerMove(board)
+        board[move] = playerMarker
+        if checkWin(board, playerMarker):
+            InGame = False
+            displayBoard(board)
+            if playerMarker == '0':
+                print('Noughts won!')
+            else:
+                print('Crosses won!')
+            continue
+        if checkDraw(board):
+            InGame = False
+            displayBoard(board)
+            print('It was a draw!')
+            continue
+        displayBoard(board)
+        if playerMarker == '0':
+            playerMarker = 'X'
+        else:
+            playerMarker = '0'
 
-elif number >= 100:
-
-    print(“Too big”)
-
-else:
-
-    print(“That was OK”)
-
+    print('Type y to keep playing')
+    inp = input()
+    if inp != 'y' and inp != 'Y':
+        Playing = False

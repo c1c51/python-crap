@@ -1,5 +1,5 @@
 y=1
-x=int(input("number?"))
+x=float(input("number?"))
 while y<13:
     print(x*y)
     y=y+1
